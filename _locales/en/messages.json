@@ -1,0 +1,196 @@
+{
+  "name": {
+    "message": "Typium"
+  },
+  "description": {
+    "message": "Typing by gaze on web-pages"
+  },
+  "optionsTitle": {
+    "message": "$name$ options",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+  },
+  
+	"save": {
+    "message": "Save"
+  },
+	"optionsSaved": {
+    "message": "Options saved"
+  },
+  "etudOptions": {
+    "message": "Options..."
+  },
+  "etudCalibrate": {
+    "message": "Calibrate..."
+  },
+  "etudStart": {
+    "message": "Start"
+  },
+  "etudStop": {
+    "message": "Stop"
+  },
+	"etudLoading": {
+		"message": "loading..."
+	},
+	"etudInstall": {
+    "message": "$name$ is not installed",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+	},
+	"etudState2": {
+    "message": "The device is not connected"
+  },
+	"etudState3": {
+    "message": "Ready"
+  },
+	"etudState4": {
+    "message": "Calibrated"
+  },
+	"etudState5": {
+    "message": "Tracking"
+  },
+  
+	"etud": {
+    "message": "Eye-tracking"
+  },
+	"etudSamplingRate": {
+    "message": "Sampling rate (Hz)"
+  },
+  
+	"fixdet": {
+    "message": "Fixation detector"
+  },
+  "fixdetMaxFixSize": {
+    "message": "Max fixation size (px)"
+  },
+  "fixdetBufferSize": {
+    "message": "Buffer size"
+  },
+	
+  "selection": {
+    "message": "Selection"
+  },
+  "selectionDwellTime": {
+    "message": "Key dwell time (ms)"
+  },
+  "selectionPageFreeDwellTime": {
+    "message": "Page selection-free dwell time (ms)"
+  },
+  "selectionPageDwellTime": {
+    "message": "Page dwell time (ms)"
+  },
+
+	"gazePointer": {
+    "message": "Gaze pointer"
+  },
+  "gazePointerShow": {
+    "message": "show"
+  },
+  "gazePointerSize": {
+    "message": "Size (px)"
+  },
+  "gazePointerColor": {
+    "message": "Color"
+  },
+  "gazePointerColorA": {
+    "message": "Transparency"
+  },
+
+  "keyboard": {
+    "message": "Keyboard"
+  },
+  "keyboardHeight": {
+    "message": "Height (px)"
+  },
+  "keyboardOpacity": {
+    "message": "Opacity"
+  },
+  "keyboardColor": {
+    "message": "Color"
+  },
+  "keyboardLayout": {
+    "message": "Layout"
+  },
+  "keyboardLayoutDescriptionLink": {
+    "message": "Format description"
+	},
+  "keyboardLayoutDescription": {
+    "message":
+			"A layout is described using JSON notation without opening tags.
+			Rows are separated by periods. Each row is either a string (strings are always surrounded by quotation marks), 
+			or an array denoted using brackets \"[\" and \"]\":
+			  <ul><li><span class=code>\" \", [ ]</span> - two rows.</li></ul>
+			Arrays consist of strings and objects. Objects are denoted using curly brackets \"{\" and \"}\":
+			  <ul><li><span class=code>[ \" \", { } ]</span> - several buttons described by a string and one button described by an object.</li></ul>
+			A string holds a list of buttons separated by period (\",\"):
+			  <ul><li><span class=code>\"a,b,c\"</span> - three buttons that will display \"a\", \"b\" and \"c\" letters, and print them when pressed.</li></ul>
+			Spaces after periods are not allowed (unless this is a button that will print the space). 
+			Each key may have up to 3 states (lowcase, upcase and other) and states are devided by the vertical line (\"|\"):
+			  <ul><li><span class=code>\"a|A,b|B|,c||$$,d|\"</span>
+					<ul>
+						<li>the first button will be displayed in lower case in the first state, and in upper case for all other states</li>
+						<li>the second button will be displayed in lower case in the first state, in upper case in the second state, and not displayed in the third state</li>
+						<li>the third button will be displayed as \"c\" in the first state, not displayed in the second state, and displayed as \"$$\" in the third state</li>
+						<li>the last button will be displayed as \"d\" in the first state, and not displayed in other states</li>
+						</ul>
+					</li></ul>
+			The default keyboard state is \"lowcase\". A special functional key described further may change 
+			the state when pressed.<br>
+			It is possible to separate using a colon (\":\") what will be shown on a button and what will be printed when it is pressed:
+			  <ul><li><span class=code>\"-a-:a,-b-:b,-c-:c\"</span> - each button will be displayed with two \"-\" signs, but prints a single letter.</li></ul>
+			If the string to be displayed contains \".png\", then an image from the extension's folder \"\\images\\glyphs\" will be displayed if it exists:
+			  <ul><li><span class=code>\"smile.png:8),upcase.png:upcase\"</span></li></ul>
+			Certain words can be used to trigger functions:
+				<ul>
+					<li>\"lowcase\" - changes the state of each button to \"lowcase\"</li>
+					<li>\"upcase\" - changes the state of each button to \"upcase\"</li>
+					<li>\"other\" - changes the state of each button to \"other\"</li>
+					<li>\"hide\" - hides the keyboard</li>
+					<li>\"backspace\" - remove the preceding character</li>
+					<li>\"enter\" - simulates \"Enter\"</li>
+					<li>\"left\" - pushes the caret left</li>
+					<li>\"right\" - pushes the caret right</li>
+					<li>\"up\" - pushes the caret up</li>
+					<li>\"down\" - pushes the caret down</li>
+					<li>\"home\" - pushes the caret to line start</li>
+					<li>\"end\" - pushes the caret to line nd</li>
+					<li>\"pageup\" - pushes the caret one page up</li>
+					<li>\"pagedown\" - pushes the caret one page down</li>
+					</ul>
+			The signs used as a part of format except colons \":\" must be described as Unicode codes, eg. \u007B for \"{\".<br>
+			The other way to specify a key is to use objects. Object can be described as follows:
+			  <ul><li><span class=code>{ \"titles\" : [\"d\", \"D\"], \"commands\" : [\"d\", \"D\"] }</span> - a description of the letter \"d\" and \"D\"</li></ul>
+			List of supported object keys:
+				<ul>
+					<li>\"titles\" - array of displayed titles, one per state (empty string \"\" not to dipslay the button in a certain state)</li>
+					<li>\"commands\" - array of printed signs or functions, one per state</li>
+					<li>\"zoom\" - horizontal expansion factor</li>
+					</ul>
+				Either titles or commands only can be specified if they concide:
+			  <ul><li><span class=code>{ \"titles\" : [\"3\", \"#\", \"€\"], \"zoom\" : 1.5 }</span> - 
+					the button has all 3 state and will appear 1.5 times larger (horizontally) than other keys</li></ul>
+			"
+  },
+	
+  "button": {
+    "message": "Buttons"
+  },
+  "buttonFontName": {
+    "message": "Font name"
+  },
+  "buttonFontSize": {
+    "message": "Font size (pt)"
+  },
+  "buttonFontColor": {
+    "message": "Text color"
+  },
+  "buttonColor": {
+    "message": "Button color"
+  }
+}

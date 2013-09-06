@@ -1,0 +1,136 @@
+{
+  "name": {
+    "message": "Прокрутка GazeTTE"
+  },
+  "description": {
+    "message": "Прокрутка страниц основанная на направлении взгляда"
+  },
+  "optionsTitle": {
+    "message": "Настойки $name$",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+  },
+  
+	"save": {
+    "message": "Сохранить"
+  },
+	"optionsSaved": {
+    "message": "Настройки сохранены"
+  },
+  "etudOptions": {
+    "message": "Настойки..."
+  },
+  "etudCalibrate": {
+    "message": "Калибровка..."
+  },
+  "etudStart": {
+    "message": "Начать"
+  },
+  "etudStop": {
+    "message": "Остановить"
+  },
+	"etudLoading": {
+		"message": "загрузка..."
+	},
+	"etudInstall": {
+    "message": "$name$ не инсталлирован",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+	},
+	"etudState2": {
+    "message": "Устройство не подключено"
+  },
+	"etudState3": {
+    "message": "Готово к использованию"
+  },
+	"etudState4": {
+    "message": "Откалибровано"
+  },
+	"etudState5": {
+    "message": "В речиме отслеживания"
+  },
+  
+	"etud": {
+    "message": "Отслеживание взгляда"
+  },
+	"etudSamplingRate": {
+    "message": "Частота обновления (раз в секунду)"
+  },
+  
+	"fixdet": {
+    "message": "Детектор фиксаций"
+  },
+  "fixdetMaxFixSize": {
+    "message": "Максимальный размер фиксации (пиксели)"
+  },
+  "fixdetBufferSize": {
+    "message": "Размер буфера"
+  },
+	
+  "gazePointer": {
+    "message": "Метка (взгляд)"
+  },
+  "gazePointerShow": {
+    "message": "показывать"
+  },
+  "gazePointerSize": {
+    "message": "Размер (пиксели)"
+  },
+  "gazePointerColor": {
+    "message": "Цвет"
+  },
+  "gazePointerColorA": {
+    "message": "Прозрачность"
+  },
+
+  "selection": {
+    "message": "Нажатие"
+  },
+  "selectionDwellTime": {
+    "message": "Время ожидания (мс)"
+  },
+
+  "keyboard": {
+    "message": "Клавиатура"
+  },
+  "keyboardHeight": {
+    "message": "Высота (пиксели)"
+  },
+  "keyboardOpacity": {
+    "message": "Прозрачность"
+  },
+  "keyboardColor": {
+    "message": "Цвет"
+  },
+  "keyboardLayout": {
+    "message": "Кнопки"
+  },
+  "keyboardLayoutDescriptionLink": {
+    "message": "Формат описания"
+	},
+  "keyboardLayoutDescription": {
+    "message": "Справка"
+  },
+	
+  "button": {
+    "message": "Кнопки"
+  },
+  "buttonFontName": {
+    "message": "Шрифт"
+  },
+  "buttonFontSize": {
+    "message": "Размер шрифта (пункты)"
+  },
+  "buttonFontColor": {
+    "message": "Цвет текста"
+  },
+  "buttonColor": {
+    "message": "Цвет кнопки"
+  }
+}

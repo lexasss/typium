@@ -1,0 +1,177 @@
+#typiumKeyboard {
+  border-collapse: collapse;
+  border-top: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #888888;
+  table-layout: fixed;
+  margin: 0px;
+  padding: 15px;
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  height: 240px;
+  background-image: -webkit-linear-gradient(top, #909ed4, #001a80 20px);
+  z-index: 2147483647;
+}
+#typiumKeyboard .typiumRow {
+  margin: 0px;
+  padding: 0px;
+}
+.typiumButton {
+  background-color: #a0b0f0;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  float: left;
+  font: 18pt Arial, sans-serif;
+  color: black;
+}
+.typiumAttentionAnimation {
+  position: absolute;
+  background-color: rgba(160, 176, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  display: none;
+  z-index: 2147483647;
+}
+.typiumFocusedElement {
+  outline: 3px solid #ffd040;
+  outline-offset: 5px;
+}
+#typiumSelector {
+  border-collapse: collapse;
+  border-top: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #888888;
+  table-layout: fixed;
+  margin: 0px;
+  padding: 15px;
+  position: absolute;
+  z-index: 2147483647;
+}
+#typiumPointer {
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 10px;
+  opacity: 0.4;
+  position: fixed;
+  display: none;
+  z-index: 2147483647;
+}
+.dwellIndicator {
+  background-color: black;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  opacity: 0.0;
+}
+/*
+@linkColor0: lighten(#0099CC, @lightenBy);
+@linkColor1: lighten(#9933CC, @lightenBy);
+@linkColor2: lighten(#669900, @lightenBy);
+@linkColor3: lighten(#FF8800, @lightenBy);
+@linkColor4: lighten(#CC0000, @lightenBy);
+@linkColor5: lighten(#33B5E5, @lightenBy);
+@linkColor6: lighten(#AA66CC, @lightenBy);
+@linkColor7: lighten(#99CC00, @lightenBy);
+@linkColor8: lighten(#FFBB33, @lightenBy);
+@linkColor9: lighten(#FF4444, @lightenBy);
+*/
+/*
+.link0 { outline: @linkColor0 @outlineStyle @outlineSize; }
+.link1 { outline: @linkColor1 @outlineStyle @outlineSize; }
+.link2 { outline: @linkColor2 @outlineStyle @outlineSize; }
+.link3 { outline: @linkColor3 @outlineStyle @outlineSize; }
+.link4 { outline: @linkColor4 @outlineStyle @outlineSize; }
+.link5 { outline: @linkColor5 @outlineStyle @outlineSize; }
+.link6 { outline: @linkColor6 @outlineStyle @outlineSize; }
+.link7 { outline: @linkColor7 @outlineStyle @outlineSize; }
+.link8 { outline: @linkColor8 @outlineStyle @outlineSize; }
+.link9 { outline: @linkColor9 @outlineStyle @outlineSize; }
+*/
+.link0 {
+  background-color: #ff8080;
+  background-image: none;
+  color: black;
+}
+.link1 {
+  background-color: #ffff80;
+  background-image: none;
+  color: black;
+}
+.link2 {
+  background-color: #80ff80;
+  background-image: none;
+  color: black;
+}
+.link3 {
+  background-color: #80ffff;
+  background-image: none;
+  color: black;
+}
+.link4 {
+  background-color: #8080ff;
+  background-image: none;
+  color: black;
+}
+.link5 {
+  background-color: #ff80ff;
+  background-image: none;
+  color: black;
+}
+.link6 {
+  background-color: #ffc080;
+  background-image: none;
+  color: black;
+}
+.link7 {
+  background-color: #80ffc0;
+  background-image: none;
+  color: black;
+}
+.link8 {
+  background-color: #80bfff;
+  background-image: none;
+  color: black;
+}
+.link9 {
+  background-color: #ff80bf;
+  background-image: none;
+  color: black;
+}
+.linkButton0 {
+  background-color: #ff8080;
+}
+.linkButton1 {
+  background-color: #ffff80;
+}
+.linkButton2 {
+  background-color: #80ff80;
+}
+.linkButton3 {
+  background-color: #80ffff;
+}
+.linkButton4 {
+  background-color: #8080ff;
+}
+.linkButton5 {
+  background-color: #ff80ff;
+}
+.linkButton6 {
+  background-color: #ffc080;
+}
+.linkButton7 {
+  background-color: #80ffc0;
+}
+.linkButton8 {
+  background-color: #80bfff;
+}
+.linkButton9 {
+  background-color: #ff80bf;
+}

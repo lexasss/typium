@@ -1,0 +1,159 @@
+@import url("widgets.css");
+
+#logo
+{
+	position: fixed;
+	left: 00px;
+	top: 0px;
+	width: 96px;
+	height: 70px;
+	background-image: url('chrome-extension://__MSG_@@extension_id__/images/icon48.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 2;
+}
+
+#topPanel
+{
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	border-bottom: 1px solid #CCC;
+	background-color: white;
+	line-height: 70px;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+	z-index: 1;
+}
+
+#save
+{
+	margin-left: 30px;
+}
+
+#saveConfirmation
+{
+	background-color: #C0E0F0;
+	float: right;
+	display: inline-block;
+	padding: 0px 20px;
+	font-weight: bold;
+	font-size: smaller;
+	color: #002040;
+}
+
+#etudBlock
+{
+	display: inline-block;
+	line-height: normal;
+	margin-left: 30px;
+	height: 70px;
+}
+
+.etudDeviceNameOptions
+{
+	position: relative;
+	top: 10px;
+}
+
+.etudDeviceNamePopup
+{
+}
+
+#etudControls
+{
+	position: relative;
+	top: 20px;
+}
+
+#etudLiveData
+{
+	display: inline-block;
+	font-family: monospace;
+	font-size: 8pt;
+	line-height: 10pt;
+	vertical-align: middle;
+}
+
+#topGap
+{
+	margin-top: 90px;
+}
+
+.rgba
+{
+	width: 33px;
+}
+
+body
+{
+	color: rgb(48, 57, 66);
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body.options
+{
+	margin-left: 100px;
+}
+
+h1
+{
+	font-size: 18px;
+	font-weight: normal;
+	-webkit-user-select: none;
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h3
+{
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-user-select: none;
+}
+
+table.options
+{
+	border: 0px solid #000;
+	font-size: 14px;
+	-border-width: 2px 0px;
+	-border-color: #C0C0C0;
+	-border-style: solid;
+	-background-image: -webkit-linear-gradient(top, #838BAB 30%, #BFC6E0 100%);
+	-color: white;
+	-font-weight: bold;
+	-text-shadow: black 0 1px 2px;
+	margin: 0px 0px 40px 20px;
+}
+
+table.options td
+{
+	padding: 3px 5px;
+	-webkit-user-select: none;
+}
+
+.color
+{
+	max-width: 5em;
+}
+
+.code
+{
+	font-family: monospace;
+	background-color: #DDDDDD;
+}
+
+.link
+{
+	color: #8888FF;
+	border-bottom: 1px dashed #8888FF;
+}
+
+.description
+{
+	display: none;
+}

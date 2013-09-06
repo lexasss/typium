@@ -1,0 +1,147 @@
+#typiumKeyboard {
+	border-collapse: collapse;
+	border-top: 1px solid #000000;
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px #888888;
+	table-layout: fixed;
+	margin: 0px;
+	padding: 15px;
+	position: fixed;
+	left: 0px;
+	width: 100%;
+	height: 240px;
+	background-image: -webkit-linear-gradient(top, #909ED4, #001A80 20px);
+	z-index: 2147483647;
+	
+	.typiumRow {
+		margin: 0px;
+		padding: 0px;
+	}
+}
+
+.typiumButton {
+	background-color: #A0B0F0;
+	border: 1px solid #000000;
+ 	border-radius: 10px;
+	margin: 5px;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	float: left;
+	font: 18pt Arial, sans-serif;
+	color: #000000;
+}
+
+.typiumAttentionAnimation {
+	position: absolute;
+	background-color: rgba(160, 176, 255, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+ 	border-radius: 10px;
+	display: none;
+	z-index: 2147483647;
+}
+
+.typiumFocusedElement {
+	outline: 3px solid #FFD040;
+	outline-offset: 5px;
+}
+
+#typiumSelector {
+	border-collapse: collapse;
+	border-top: 1px solid #000000;
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px #888888;
+	table-layout: fixed;
+	margin: 0px;
+	padding: 15px;
+	position: absolute;
+	z-index: 2147483647;
+}
+
+#typiumPointer {
+	pointer-events: none;
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	border-radius: 10px;
+	opacity: 0.4;
+	position: fixed;
+	display: none;
+	z-index: 2147483647;
+}
+
+.dwellIndicator {
+	background-color: black;
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	opacity: 0.0;
+}
+
+@outlineStyle: solid;
+@outlineSize: 6px;	
+@lightenBy: 30%;
+@firstColor: #FF8080;
+
+@linkColor0: spin(@firstColor, 0);
+@linkColor1: spin(@linkColor0, 60);
+@linkColor2: spin(@linkColor1, 60);
+@linkColor3: spin(@linkColor2, 60);
+@linkColor4: spin(@linkColor3, 60);
+@linkColor5: spin(@linkColor4, 60);
+@linkColor6: spin(@linkColor5, 90);
+@linkColor7: spin(@linkColor6, 120);
+@linkColor8: spin(@linkColor7, 60);
+@linkColor9: spin(@linkColor8, 120);
+
+/*
+@linkColor0: lighten(#0099CC, @lightenBy);
+@linkColor1: lighten(#9933CC, @lightenBy);
+@linkColor2: lighten(#669900, @lightenBy);
+@linkColor3: lighten(#FF8800, @lightenBy);
+@linkColor4: lighten(#CC0000, @lightenBy);
+@linkColor5: lighten(#33B5E5, @lightenBy);
+@linkColor6: lighten(#AA66CC, @lightenBy);
+@linkColor7: lighten(#99CC00, @lightenBy);
+@linkColor8: lighten(#FFBB33, @lightenBy);
+@linkColor9: lighten(#FF4444, @lightenBy);
+*/
+
+/*
+.link0 { outline: @linkColor0 @outlineStyle @outlineSize; }
+.link1 { outline: @linkColor1 @outlineStyle @outlineSize; }
+.link2 { outline: @linkColor2 @outlineStyle @outlineSize; }
+.link3 { outline: @linkColor3 @outlineStyle @outlineSize; }
+.link4 { outline: @linkColor4 @outlineStyle @outlineSize; }
+.link5 { outline: @linkColor5 @outlineStyle @outlineSize; }
+.link6 { outline: @linkColor6 @outlineStyle @outlineSize; }
+.link7 { outline: @linkColor7 @outlineStyle @outlineSize; }
+.link8 { outline: @linkColor8 @outlineStyle @outlineSize; }
+.link9 { outline: @linkColor9 @outlineStyle @outlineSize; }
+*/
+.eachLink () {
+	background-image: none; color: black;
+}
+
+.link0 { background-color: @linkColor0; .eachLink; }
+.link1 { background-color: @linkColor1; .eachLink; }
+.link2 { background-color: @linkColor2; .eachLink; }
+.link3 { background-color: @linkColor3; .eachLink; }
+.link4 { background-color: @linkColor4; .eachLink; }
+.link5 { background-color: @linkColor5; .eachLink; }
+.link6 { background-color: @linkColor6; .eachLink; }
+.link7 { background-color: @linkColor7; .eachLink; }
+.link8 { background-color: @linkColor8; .eachLink; }
+.link9 { background-color: @linkColor9; .eachLink; }
+
+.linkButton0 { background-color: @linkColor0; }
+.linkButton1 { background-color: @linkColor1; }
+.linkButton2 { background-color: @linkColor2; }
+.linkButton3 { background-color: @linkColor3; }
+.linkButton4 { background-color: @linkColor4; }
+.linkButton5 { background-color: @linkColor5; }
+.linkButton6 { background-color: @linkColor6; }
+.linkButton7 { background-color: @linkColor7; }
+.linkButton8 { background-color: @linkColor8; }
+.linkButton9 { background-color: @linkColor9; }

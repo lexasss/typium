@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="options.css" type="text/css">
+	<script type="text/javascript" src="libs/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="libs/jscolor/jscolor.js"></script>
+	<script type="text/javascript" src="shared.js"></script>
+	<script type="text/javascript" src="options.js"></script>
+</head>
+
+<body class="options">
+	<span id="logo"></span>
+	<div id="topPanel">
+		<h1 id="title"></h1>
+		<input type="button" id="save" />
+		<div id="saveConfirmation"></div>
+		<div id="etudBlock">
+			<div id="etudDeviceName" class="etudDeviceNameOptions"> </div>
+			<div id="etudControls">
+				<input id="etudOptions" type="button" disabled />
+				<input id="etudCalibrate" type="button" disabled />
+				<input id="etudStartStop" type="button" disabled />
+				</div>
+			</div>
+		<div id="etudLiveData"></div>
+	</div>
+	
+	<div id="topGap"></div>
+
+	<h3 id="etud"></h3>
+	<table class="options">
+		<tr>
+			<td></td>
+			<td><input id="etudSamplingRate" type="number" min="5" max="50" step="5" /></td>
+		</tr>
+	</table>
+
+	<h3 id="fixdet"></h3>
+	<table class="options">
+		<tr>
+			<td></td>
+			<td><input id="fixdetMaxFixSize" type="number" min="25" max="70" step="5" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="fixdetBufferSize" type="number" min="5" max="30" step="1" /></td>
+		</tr>
+	</table>
+	
+	<h3 id="gazePointer"></h3>
+	<table class="options">
+		<tr>
+			<td colspan="2"><input id="gazePointerShow" type="checkbox" /><label></label></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="gazePointerSize" type="number" min="2" max="100" step="1" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="gazePointerColor" type="text" class="color" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="gazePointerColorA" type="number" min="0.1" max="1.0" step="0.1" /></td>
+		</tr>
+	</table>
+	
+	<h3 id="selection"></h3>
+	<table class="options">
+		<tr>
+			<td></td>
+			<td><input id="selectionDwellTime" type="number" min="200" max="2000" step="50" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="selectionPageFreeDwellTime" type="number" min="200" max="2000" step="50" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="selectionPageDwellTime" type="number" min="200" max="2000" step="50" /></td>
+		</tr>
+	</table>
+	
+	<h3 id="keyboard"></h3>
+	<table class="options">
+		<tr>
+			<td></td>
+			<td><input id="keyboardHeight" type="number" min="100" max="1000" step="20" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="keyboardOpacity" type="number" min="0.0" max="1.0" step="0.1" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="keyboardColor" type="text" class="color" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><textarea id="keyboardLayout" rows="6" cols="90"></textarea></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<span id="keyboardLayoutDescriptionLink" class="link"></span><br>
+				<span id="keyboardLayoutDescription" class="description"></span>
+			</td>
+		</tr>
+	</table>
+	
+	<h3 id="button"></h3>
+	<table class="options">
+		<tr>
+			<td></td>
+			<td><input id="buttonFontName" type="text" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="buttonFontSize" type="number" min="8" max="70" step="2" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="buttonFontColor" type="text" class="color" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="buttonColor" type="text" class="color" /></td>
+		</tr>
+	</table>
+</body>
+</html>
