@@ -28,6 +28,7 @@ Typium.options = {
 	keyboardHeight: 240,
 	keyboardOpacity: 0.8,
 	keyboardColor: "#001A80",
+    //keyboardLayout: '"q,w,e,r,t,y,u,i,o,p"',
 	keyboardLayout: "[\"!|!|1,?|?|2,:|:|3,;|;|4,\\u0027|\\u0027|5,\\u0022|\\u0022|6,&|&|7,@|@|8,(|(|9,)|)|0\",{\"titles\":[\"backspace.png\"], \"commands\":[\"backspace\"]}],\n[\"q|Q|+,w|W|-:,e|E|*,r|R|\\/,t|T|=,y|Y|%,u|U|$,i|I|#,o|O|(,p|P|)\",{\"titles\":[\"Enter\"], \"commands\":[\"enter\"]}],\n[\"a|A|@,s|S|~,d|D|^,f|F|\\u005C,g|G|_,h|H|&,j|J|[,k|K|],l|L|\\u007B, | |\\u007D\",{\"titles\":[\"other\",\"other\",\" \"], \"commands\":[\"symbols\",\"symbols\",\" \"]}],\n[\"z|Z|,x|X|,c|C|,v|V|,b|B|,n|N|,m|M|\",{\"titles\":[\",\",\"<\",\"\"], \"commands\":[\",\",\"<\",\"\"]},\".|>|\",{\"titles\":[\"upcase\",\"lowcase\"], \"commands\":[\"upcase\",\"lowcase\"]},{\"titles\":[\"close\"], \"commands\":[\"hide\"]}]",
 	
 	buttonFontName: "Arial",
@@ -72,8 +73,8 @@ Typium.parseAnswerTo_GetState_ = function(answer, output, btnOptions, btnCalibra
 			btnStartStop.value = chrome.i18n.getMessage(answer.state.code == 5 ? "etudStop" : "etudStart");
 		}
 			
-		chrome.browserAction.setIcon(answer.state.code == 5 ? 
-					{path: {"19": "images/iconT19.png", "38": "images/iconT38.png"}} : 
+		chrome.browserAction.setIcon(answer.state.code == 5 ?
+					{path: {"19": "images/iconT19.png", "38": "images/iconT38.png"}} :
 					{path: {"19": "images/icon19.png", "38": "images/icon38.png"}});
 	}
 };
@@ -114,7 +115,7 @@ Typium.loadOptions();
 if (!String.prototype.format) {
   String.prototype.format = function() {
     var args = arguments;
-    return this.replace(/{(\d+)}/g, function(match, number) { 
+    return this.replace(/{(\d+)}/g, function(match, number) {
       return typeof args[number] != 'undefined'
         ? args[number]
         : match

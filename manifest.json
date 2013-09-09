@@ -20,7 +20,7 @@
     "default_popup": "popup.html"
   },
   "background": {
-		"scripts": ["shared.js", "fixdet.js", "etud.js"] 
+		"scripts": ["shared.js", "fixdet.js", "etud.js"]
   },
   "content_scripts": [
     {
@@ -37,11 +37,7 @@
 		"https://*/*"
 	],
 	"web_accessible_resources": [
-		//"keyboard.css",
+		"libs/*",
 		"images/glyphs/*.png"
 	]
-	//
-	//"plugins": [
-  //  { "path": "etudplugin.dll", "public": true }
-  //]
 }

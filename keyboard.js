@@ -196,7 +196,8 @@ Typium.Keyboard.prototype.parseLayout = function(layout)
 {
 	var result = [];
 	try {
-		var json = JSON.parse('{\'layout\': [' + layout + '] }');
+    	var layoutString = '{"layout": [' + layout + '] }';
+		var json = JSON.parse(layoutString);
 		if (json.layout !== undefined && this.is('Array', json.layout))
 			result = json.layout;
 		else
@@ -351,8 +352,8 @@ Typium.Keyboard.prototype.addButton = function(row, button, w, h)
 		canvas.fillRect(0,0,w,h);
 		
 		canvas.textAlign = 'center';
-		canvas.textBaseline = 'middle'; 
-		canvas.moveTo(w/2, h/2); 
+		canvas.textBaseline = 'middle';
+		canvas.moveTo(w/2, h/2);
 		canvas.font = keyboard.o.buttonFontSize + 'pt ' + keyboard.o.buttonFontName;
 		canvas.fillStyle = '#' + keyboard.o.buttonFontColor;
 		
@@ -373,7 +374,7 @@ Typium.Keyboard.prototype.addButton = function(row, button, w, h)
 			var size = Math.min(w, h);
 			canvas.beginPath();
 			canvas.lineWidth = Math.max(5, size/20);
-			canvas.arc(w/2, h/2, 0.45*size, -0.5*Math.PI, 
+			canvas.arc(w/2, h/2, 0.45*size, -0.5*Math.PI,
 				-0.5*Math.PI + 2*Math.PI*(Math.min(1.0, button.attention / keyboard.o.selectionDwellTime)));
 			canvas.strokeStyle = 'red';
 			canvas.stroke();

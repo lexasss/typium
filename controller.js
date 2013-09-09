@@ -10,11 +10,11 @@ Typium.Controller =
 	currentAttention: null,
 	
 	offset: {
-		x: 0, 
+		x: 0,
 		y: 0
 	},
 	zoom: {
-		x: 1.0, 
+		x: 1.0,
 		y: 1.0
 	},
 
@@ -26,7 +26,7 @@ Typium.Controller =
 
 	//----------------------------------------------------------------------------------
 	// utils
-	constructListOfTargets: function() [
+	constructListOfTargets: function() {
 		var result = [];
 		if (this.selector.isVisible()) {
 			this.selector.forEachButton(function(btn) {
@@ -56,8 +56,8 @@ Typium.Controller =
 				result = typeof this.selectionStart == "number";
 				if (result) {
 					this.attention = {
-						duration: 0, 
-						//animation: null, 
+						duration: 0,
+						//animation: null,
 						freezed: false}; //not really needed
 					if (!this.id) {
 						this.id = "typiumInput_" + (id++);
@@ -75,7 +75,7 @@ Typium.Controller =
 		this.links = $("*").filter(function(index) {
 			var result = false;
 			try {
-				if (typeof this.selectionStart == "number" || 
+				if (typeof this.selectionStart == "number" ||
 						this.id.indexOf("typium") == 0 ||
 						this.className.indexOf("typium") == 0) {
 					// skip it
@@ -87,8 +87,8 @@ Typium.Controller =
 				
 				if (result) {
 					this.attention = {
-						duration: 0, 
-						animation: null, 
+						duration: 0,
+						animation: null,
 						freezed: false};
 					if (!this.id) {
 						this.id = "typiumClickable_" + (id++);
@@ -138,11 +138,11 @@ Typium.Controller =
 			var w = $this.width();
 			var h = $this.height();
 
-			if (x >= x1 && 
-					y >= y1 && 
-					x + w <= x2 && 
-					y + h <= y2 && 
-					this.style.display != "none" && 
+			if (x >= x1 &&
+					y >= y1 &&
+					x + w <= x2 &&
+					y + h <= y2 &&
+					this.style.display != "none" &&
 					this.style.visibility != "hidden") {
 				elements.push($this.get(0));
 			}
@@ -150,7 +150,7 @@ Typium.Controller =
 		return elements;
 	},
 	
-	toSafeJSONString: function(text) 
+	toSafeJSONString: function(text)
 	{
 		return text.replace(/[\u0001-\u002F|\u003A-\u0040|\u005B-\u0060|\u007B-\u00BF]+/g, "_");
 	},
@@ -233,12 +233,12 @@ Typium.Controller =
 			if (window.getComputedStyle(keyboard.container).getPropertyValue("position") == "absolute") {
 				pos = $btn.offset();
 				size = {width: $btn.outerWidth(true), height: $btn.outerHeight(true)};
-				rect = {left: pos.left - window.scrollX, top: pos.top - window.scrollY, 
+				rect = {left: pos.left - window.scrollX, top: pos.top - window.scrollY,
 						right: pos.left - window.scrollX + size.width, bottom: pos.top - window.scrollY + size.height};
 			} else {
 				pos = $btn.position();
 				size = {width: $btn.outerWidth(true), height: $btn.outerHeight(true)};
-				rect = {left: pos.left, top: pos.top + keyboard.container.offsetTop, 
+				rect = {left: pos.left, top: pos.top + keyboard.container.offsetTop,
 						right: pos.left + size.width, bottom: pos.top + size.height + keyboard.container.offsetTop};
 			}
 			if (that.gazePoint.x > rect.left && that.gazePoint.x < rect.right &&
@@ -273,7 +273,7 @@ Typium.Controller =
 		var $el = $(element);
 		var pos = $el.offset();
 		var size = {
-			width: $el.outerWidth(true), 
+			width: $el.outerWidth(true),
 			height: $el.outerHeight(true)
 		};
 		var minSize = 160;
@@ -282,9 +282,9 @@ Typium.Controller =
 			y: size.height < minSize ? (minSize - size.height) / 2 : 0
 		};
 		var rect = {
-			left: pos.left - window.scrollX - extendBy.x, 
-			top: pos.top - window.scrollY - extendBy.y, 
-			right: pos.left - window.scrollX + size.width + extendBy.x, 
+			left: pos.left - window.scrollX - extendBy.x,
+			top: pos.top - window.scrollY - extendBy.y,
+			right: pos.left - window.scrollX + size.width + extendBy.x,
 			bottom: pos.top - window.scrollY + size.height + extendBy.y
 		};
 				
@@ -372,7 +372,7 @@ Typium.Controller =
 			if (d > 0) {
 				ctx.beginPath();
 				ctx.lineWidth = Math.max(5, size/20);
-				ctx.arc(size/2, size/2, 0.45*size, -0.5*Math.PI, 
+				ctx.arc(size/2, size/2, 0.45*size, -0.5*Math.PI,
 					-0.5*Math.PI + 2*Math.PI*(Math.min(1.0, d / Typium.options.selectionDwellTime)));
 				ctx.strokeStyle = "red";
 				ctx.stroke();
@@ -430,9 +430,9 @@ Typium.Controller =
 					this.attention.styleID = count % 10;
 					this.classList.add("link" + this.attention.styleID);
 					var text = getTextFromItem(this);
-					layout += "[{\"titles\":[\"" + 
-						(text ? text : "_empty_") + 
-						"\"],\"commands\":[\"" + this.id + "\"],\"className\":\"linkButton" + 
+					layout += "[{\"titles\":[\"" +
+						(text ? text : "_empty_") +
+						"\"],\"commands\":[\"" + this.id + "\"],\"className\":\"linkButton" +
 						this.attention.styleID + "\"}]";
 					count++;
 				}
@@ -450,9 +450,9 @@ Typium.Controller =
 		layout += (layout.length ? "," : "") + "[{\"titles\":[\"close.png\"],\"commands\":[\"hide\"]}]";
 		count++;
 			
-		this.selector.container.style.left = Math.min(document.documentElement.clientWidth - 200, 
+		this.selector.container.style.left = Math.min(document.documentElement.clientWidth - 200,
 				Math.floor(this.gazePoint.x + 30)) + "px";
-		this.selector.container.style.top = Math.min(document.documentElement.clientHeight - count * 80 - 32, 
+		this.selector.container.style.top = Math.min(document.documentElement.clientHeight - count * 80 - 32,
 				Math.floor(this.gazePoint.y)) + "px";
 		this.selector.container.style.width = "160px";
 		this.selector.container.style.height = (count * 80) + "px";
@@ -540,7 +540,7 @@ Typium.Controller =
 		var innerHeight = window.innerHeight * Typium.Controller.zoom.y;
 		Typium.Controller.offset = {
 			x: window.screenX + (window.outerWidth - innerWidth) / 2,
-			y: window.screenY + (window.outerHeight - innerHeight) - 
+			y: window.screenY + (window.outerHeight - innerHeight) -
 					(isFullScreen ? 0 : (window.outerWidth - innerWidth) / 2)
 		};
 	},
@@ -576,11 +576,11 @@ Typium.Controller =
 		document.body.appendChild(this.selector.container);
 		document.body.appendChild(this.pointer);
 		
-		setTimeout(function() { 
-			Typium.Controller.keyboard.container.style.display = "none"; 
-			Typium.Controller.keyboard.container.style.opacity = ""; 
-			Typium.Controller.selector.container.style.display = "none"; 
-			Typium.Controller.selector.container.style.opacity = ""; 
+		setTimeout(function() {
+			Typium.Controller.keyboard.container.style.display = "none";
+			Typium.Controller.keyboard.container.style.opacity = "";
+			Typium.Controller.selector.container.style.display = "none";
+			Typium.Controller.selector.container.style.opacity = "";
 		}, 1000);
 
 		this.commPort = chrome.runtime.connect({name: Typium.PORT_NAME});
@@ -610,7 +610,7 @@ Typium.Controller =
 						y: (answer.fixation.y - Typium.Controller.offset.y) / Typium.Controller.zoom.y,
 						duration: answer.fixation.duration,
 						saccade: {
-							dx: answer.fixation.saccade.dx, 
+							dx: answer.fixation.saccade.dx,
 							dy: answer.fixation.saccade.dy
 						}
 					};
