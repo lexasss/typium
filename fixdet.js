@@ -131,7 +131,7 @@ Typium.FixationDetector =
 };
 
 // -----------------------------------------------------
-// Now Chrome dow not fire the resize event insode of extension. 
+// Now Chrome dow not fire the resize event inside of extension. 
 // The functionality is moved to controller.js
 // -----------------------------------------------------
 //Typium.FixationDetector.calcTransformParams();

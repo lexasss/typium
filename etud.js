@@ -42,12 +42,12 @@ Typium.ETUDPlugin_getState = function()
 		}
 	}
 	return state;
-}
+};
 
 // -----------------------------------
 Typium.sendTo = function(data, to, tabId)
 {
-	if (typeof(to) == "object") {
+	if (typeof(to) === "object") {
 		data.isReplyToSender = true;
 		to.postMessage(data);
 	} else {
@@ -55,34 +55,34 @@ Typium.sendTo = function(data, to, tabId)
 		for (var i = 0; i < Typium.ETUDCommPorts.length; i++) {
 			var port = Typium.ETUDCommPorts[i];
 			var isOptionsPage = !port.sender.tab || port.sender.tab.url.indexOf("chrome-extension") >= 0;
-			data.isReplyToSender = port.sender.tab ? port.sender.tab.id == tabId : tabId === undefined;
-			if (to == Typium.ALL ||
-				 (to == Typium.ACTIVE_TAB_AND_OPTIONS && (isOptionsPage || port.sender.tab.id == tabId)) ||
-				 (to == Typium.OPTIONS && isOptionsPage) ||
-				 (to == Typium.TABS && !isOptionsPage)) {
+			data.isReplyToSender = port.sender.tab ? port.sender.tab.id === tabId : tabId === undefined;
+			if (to === Typium.ALL ||
+				 (to === Typium.ACTIVE_TAB_AND_OPTIONS && (isOptionsPage || port.sender.tab.id === tabId)) ||
+				 (to === Typium.OPTIONS && isOptionsPage) ||
+				 (to === Typium.TABS && !isOptionsPage)) {
 				port.postMessage(data);
 				count++;
 			}
 		}
 	}
-}
+};
 
 Typium.addPort = function(port) 
 {
 	for (var i = 0; i < Typium.ETUDCommPorts.length; i++)
-		if (Typium.ETUDCommPorts[i] == port)
+		if (Typium.ETUDCommPorts[i] === port)
 			return;
 	Typium.ETUDCommPorts.push(port);
-}
+};
 
 Typium.removePort = function(port) 
 {
 	for (var i = 0; i < Typium.ETUDCommPorts.length; i++)
-		if (Typium.ETUDCommPorts[i] == port) {
+		if (Typium.ETUDCommPorts[i] === port) {
 			Typium.ETUDCommPorts.splice(i, 1);
 			break;
 		}
-}
+};
 
 // -----------------------------------
 // callbacks for buttons
@@ -90,14 +90,14 @@ Typium.ETUDPlugin_showOptions = function()
 {
 	if(Typium.ETUDPlugin)
 		Typium.ETUDPlugin.showOptions();
-}
+};
 		
 Typium.ETUDPlugin_calibrate = function()
 {
 	if(Typium.ETUDPlugin && Typium.ETUDPlugin.Ready)
 		Typium.ETUDPlugin.calibrate();
-}
-		
+};
+
 Typium.ETUDPlugin_startStop = function()
 {
 	if(Typium.ETUDPlugin && Typium.ETUDPlugin.Calibrated) {
@@ -113,7 +113,7 @@ Typium.ETUDPlugin_startStop = function()
 			}, 1000 / Typium.options.etudSamplingRate);
 		}
 	}
-}
+};
 
 // -----------------------------------
 // state is the flag:
@@ -124,12 +124,12 @@ Typium.ETUDPlugin_state = function(state)
 	console.log("Event from ETUD-Plugin: state changed to {0}".format(state));
 	
 	Typium.sendTo({
-		state: state == 2
+		state: state === 2
 	}, Typium.TABS, null);
 	
-	if(Typium.ETUDPlugin_trackingTriggerHandler && (state == 1 || state == 2))
-		Typium.ETUDPlugin_trackingTriggerHandler(state == 2);
-}
+	if(Typium.ETUDPlugin_trackingTriggerHandler && (state === 1 || state === 2))
+		Typium.ETUDPlugin_trackingTriggerHandler(state === 2);
+};
 		
 Typium.ETUDPlugin_data = function(timestamp, x, y)
 {
@@ -137,14 +137,14 @@ Typium.ETUDPlugin_data = function(timestamp, x, y)
 	
 	if(Typium.ETUDPlugin_dataHandler)
 		Typium.ETUDPlugin_dataHandler(timestamp, x, y);
-}
+};
 
 // -----------------------------------
 function Typium_ETUDPlugin_loaded() 
 {
 	console.log("ETUD-Plugin loaded");
 	
-	if(Typium.ETUDPlugin != null)
+	if(Typium.ETUDPlugin !== null)
 		return;
 
 	Typium.ETUDPlugin = document.getElementById("etudPlugin");
@@ -160,32 +160,32 @@ Typium.ETUDPlugin_init = function()
 	etudPluginContainer.innerHTML = "<object id='etudPlugin' type='application/x-etudplugin' width='1' height='1'><param name='onload' value='Typium_ETUDPlugin_loaded' /></object>";
 		
 	document.body.insertBefore(etudPluginContainer, document.body.firstChild);
-}
+};
 
 // -----------------------------------
 chrome.runtime.onConnect.addListener(function(port) {
-	console.assert(port.name == Typium.PORT_NAME);
+	console.assert(port.name === Typium.PORT_NAME);
 	Typium.addPort(port);
   port.onMessage.addListener(function(request) {
 			var answer = {toRequest: request.name};
 			var to = null;
-			if(request.name == Typium.SHOW_OPTIONS) {
+			if(request.name === Typium.SHOW_OPTIONS) {
 				Typium.ETUDPlugin_showOptions();
 				to = Typium.OPTIONS;
-			} else if(request.name == Typium.CALIBRATE) {
+			} else if(request.name === Typium.CALIBRATE) {
 				Typium.ETUDPlugin_calibrate();
 				to = Typium.OPTIONS;
-			} else if(request.name == Typium.TOGGLE) {
+			} else if(request.name === Typium.TOGGLE) {
 				Typium.ETUDPlugin_startStop();
 				to = Typium.OPTIONS;
-			} else if(request.name == Typium.GET_STATE) {
+			} else if(request.name === Typium.GET_STATE) {
 				answer.state = Typium.ETUDPlugin_getState();
 				answer.device = answer.state.code > 1 ? Typium.ETUDPlugin.Device : "";
 				to = (!port.sender.tab || port.sender.tab.url.indexOf("chrome-extension") >= 0) ? Typium.OPTIONS : port;
-			} else if(request.name == Typium.GET_OPTIONS) {
+			} else if(request.name === Typium.GET_OPTIONS) {
 				answer.options = Typium.options;
 				to = port;
-			} else if(request.name == Typium.UPDATE_OPTIONS) {
+			} else if(request.name === Typium.UPDATE_OPTIONS) {
 				Typium.loadOptions();
 				to = Typium.TABS;
 			}

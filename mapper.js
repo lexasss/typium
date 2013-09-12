@@ -21,12 +21,12 @@ Typium.Mapper = (function() {
 		};
 		
 		var result = null;
-		if (method == Typium.MAPPING_NAIVE) {
+		if (method === Typium.MAPPING_NAIVE) {
 			result = mapNaive();
 		}
 		
 		return result;
-	}
+	};
 	
 	return mapper;
 })();

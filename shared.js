@@ -55,25 +55,25 @@ Typium.toggleETUD = function(port) {
 
 Typium.parseAnswerTo_GetState_ = function(answer, output, btnOptions, btnCalibrate, btnStartStop) {
 	console.log("Executed: getState = {0} ({1})".format(answer.state.code, answer.state.message));
-	if(answer.state.code == 0) {
+	if(answer.state.code === 0) {
 		if (output)
 			output.innerHTML = chrome.i18n.getMessage("etudInstall", "<a href='http://www.sis.uta.fi/~csolsp/downloads.php?id=ETUDPlugin'>ETUD-Plugin</a>");
-	} else if(answer.state.code == 1) {
+	} else if(answer.state.code === 1) {
 		if (output)
 			output.innerHTML = chrome.i18n.getMessage("etudInstall", "<a href='http://www.sis.uta.fi/~csolsp/downloads.php?id=ETUDriver'>ETU-Driver</a>");
 	} else {
 		if (output)
 			output.innerHTML = answer.device + ": " + chrome.i18n.getMessage("etudState" + answer.state.code);
 		if (btnOptions)
-			btnOptions.disabled = answer.state.code == 5;
+			btnOptions.disabled = answer.state.code === 5;
 		if (btnCalibrate)
-			btnCalibrate.disabled = answer.state.code != 3 && answer.state.code != 4;
+			btnCalibrate.disabled = answer.state.code !== 3 && answer.state.code !== 4;
 		if (btnStartStop) {
-			btnStartStop.disabled = answer.state.code != 4 && answer.state.code != 5;
-			btnStartStop.value = chrome.i18n.getMessage(answer.state.code == 5 ? "etudStop" : "etudStart");
+			btnStartStop.disabled = answer.state.code !== 4 && answer.state.code !== 5;
+			btnStartStop.value = chrome.i18n.getMessage(answer.state.code === 5 ? "etudStop" : "etudStart");
 		}
 			
-		chrome.browserAction.setIcon(answer.state.code == 5 ?
+		chrome.browserAction.setIcon(answer.state.code === 5 ?
 					{path: {"19": "images/iconT19.png", "38": "images/iconT38.png"}} :
 					{path: {"19": "images/icon19.png", "38": "images/icon38.png"}});
 	}
@@ -85,21 +85,21 @@ Typium.convert = function(value) {
 	var cv = parseFloat(value);
 	if(!isNaN(cv)) {
 		result = cv;
-	} else if (value.toLowerCase() == "true") {
+	} else if (value.toLowerCase() === "true") {
 		result = true;
-	} else if (value.toLowerCase() == "false") {
+	} else if (value.toLowerCase() === "false") {
 		result = false;
 	}
 	return result;
-}
+};
 
 Typium.loadOptions = function() {
 	var loadOption = function(name, value) {
 		var v = localStorage.getItem(name);
-		if(v == null)
+		if(v === null)
 			localStorage.setItem(name, value);
 		else {
-			if (name.toLowerCase().indexOf("color") < 0 || v.indexOf(".") >= 0 || v.length != 6)
+			if (name.toLowerCase().indexOf("color") < 0 || v.indexOf(".") >= 0 || v.length !== 6)
 				v = Typium.convert(v);
 			Typium.options[name] = v;
 		}
@@ -116,7 +116,7 @@ if (!String.prototype.format) {
   String.prototype.format = function() {
     var args = arguments;
     return this.replace(/{(\d+)}/g, function(match, number) {
-      return typeof args[number] != 'undefined'
+      return typeof args[number] !== 'undefined'
         ? args[number]
         : match
       ;

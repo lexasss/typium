@@ -102,7 +102,7 @@ Typium.Keyboard.prototype.darken = function (value, rate) {
 
 Typium.Keyboard.prototype.simulateKeyPress = function (target, keyName, keyCode) {
 	function enter(elm) {
-		if (elm.tagName.toLowerCase() == 'textarea') {
+		if (elm.tagName.toLowerCase() === 'textarea') {
 			var start = elm.value.substr(0, elm.selectionEnd);
 			var end = elm.value.substr(elm.selectionEnd);
 			elm.value = start + '\n' + end;
@@ -156,23 +156,23 @@ Typium.Keyboard.prototype.simulateKeyPress = function (target, keyName, keyCode)
 	if (!target)
 		return;
 	
-	if (keyCode == 13)
+	if (keyCode === 13)
 		enter(target);
-	else if (keyCode == 33)
+	else if (keyCode === 33)
 		;//pageUp
-	else if (keyCode == 34)
+	else if (keyCode === 34)
 		;//pageDown	
 	else if (keyCode == 35)
 		endKey(target);
-	else if (keyCode == 36)
+	else if (keyCode === 36)
 		homeKey(target);
-	else if (keyCode == 37)
+	else if (keyCode === 37)
 		arrowLeft(target);
-	else if (keyCode == 38)
+	else if (keyCode === 38)
 		arrowUp(target);
-	else if (keyCode == 39)
+	else if (keyCode === 39)
 		arrowRight(target);
-	else if (keyCode == 40)
+	else if (keyCode === 40)
 		arrowDown(target);
 }
 
@@ -188,7 +188,7 @@ Typium.Keyboard.prototype.switchTo = function(state)
 		button.dom.style.visibility = title.length ? 'visible' : 'hidden';
 		button.update();
 	});
-}
+};
 
 //----------------------------------------------------------------------------------
 // creating layout
@@ -229,7 +229,7 @@ Typium.Keyboard.prototype.createButtons = function(text)
 		buttons.push(this.createButton(letters[i]));
 	}
 	return buttons;
-}
+};
 
 Typium.Keyboard.prototype.createButton = function(data)
 {
@@ -248,7 +248,7 @@ Typium.Keyboard.prototype.createButton = function(data)
 					if (!v[0] && v.length > 1) {
 						result.titles.push(':');
 						result.commands.push(v[1] || ':');
-					} else if (v.length == 1) {
+					} else if (v.length === 1) {
 						result.titles.push(state);
 						result.commands.push(state);
 					} else {
@@ -296,7 +296,7 @@ Typium.Keyboard.prototype.validateButton = function(button)
 	
 	for (i = 0; i < button.commands.length; i++) {
 		var p = button.commands[i].split('.');
-		if (p.length > 1 && p[p.length - 1].toLowerCase() == 'png') {
+		if (p.length > 1 && p[p.length - 1].toLowerCase() === 'png') {
 			p.pop();
 			button.commands[i] = p.join('.');
 		}
@@ -327,7 +327,7 @@ Typium.Keyboard.prototype.addButton = function(row, button, w, h)
 		e.stopPropagation();
 	}, false);
 	
-	w = button && button.zoom && button.zoom != 1 ? w*button.zoom + 12 * Math.floor(button.zoom - 0.00001) : w;
+	w = button && button.zoom && button.zoom !== 1 ? w*button.zoom + 12 * Math.floor(button.zoom - 0.00001) : w;
 	btn.width = w;
 	btn.height = h;
 	//btn.style.width = w + 'px';
@@ -379,12 +379,12 @@ Typium.Keyboard.prototype.addButton = function(row, button, w, h)
 			canvas.strokeStyle = 'red';
 			canvas.stroke();
 		}
-	}
+	};
 	
 	for (i = 0; i < button.titles.length; i++) {
 		var title = button.titles[i];
 		var p = title.split('.');
-		if (p.length > 1 && p[p.length - 1].toLowerCase() == 'png') {
+		if (p.length > 1 && p[p.length - 1].toLowerCase() === 'png') {
 			var glyph = document.createElement('img');
 			glyph.src = chrome.extension.getURL('images/glyphs/' + title);
 			glyph.onload = function() {
@@ -453,7 +453,7 @@ Typium.Keyboard.prototype.calcButtonBackColor = function(button) {
 	if (button.dom.className.indexOf('linkButton') > 0) {
 		backColor = window.getComputedStyle(button.dom).backgroundColor;
 		var clr = /\((\d+),\s*(\d+),\s*(\d+)\)/.exec(backColor);
-		if (clr.length == 4) {
+		if (clr.length === 4) {
 			var r = parseInt(clr[1]).toString(16);
 			var g = parseInt(clr[2]).toString(16);
 			var b = parseInt(clr[3]).toString(16);
@@ -471,7 +471,7 @@ Typium.Keyboard.prototype.reset = function()
 	this.forEachButton(function(button){
 		button.attention = 0;
 		button.update();
-	})
+	});
 };
 
 Typium.Keyboard.prototype.click = function(button) {
@@ -543,5 +543,5 @@ Typium.Keyboard.prototype.forEachButton = function(f)
 
 Typium.Keyboard.prototype.isVisible = function()
 {
-	return this.container.style.display != 'none';
-}
+	return this.container.style.display !== 'none';
+};

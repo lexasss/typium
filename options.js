@@ -9,14 +9,14 @@ Typium.saveOptions = function()
 			return;
 		}
 		var v;
-		if (el.type == "checkbox")
+		if (el.type === "checkbox")
 			v = el.checked;
-		else if (name.toLowerCase().indexOf("color") >= 0 && el.value.indexOf(".") < 0 && el.value.length == 6)
+		else if (name.toLowerCase().indexOf("color") >= 0 && el.value.indexOf(".") < 0 && el.value.length === 6)
 			v = el.value;
 		else
 			v = Typium.convert(el.value);
 		localStorage.setItem(name, v);
-	}
+	};
 
 	for (var option in Typium.options)
 		set(option);
@@ -28,7 +28,7 @@ Typium.saveOptions = function()
 	setTimeout(function() {
 		saveConfirmation.html("");
 	}, 1500);
-}
+};
 
 Typium.loadOptions = function()
 {
@@ -38,18 +38,18 @@ Typium.loadOptions = function()
 			var el = document.getElementById(name);
 			if (el === undefined)
 				return;
-			if (el.type == "checkbox")
-				el.checked = v == "true";
+			if (el.type === "checkbox")
+				el.checked = v === "true";
 			else
 				el.value = v;
 		} else {
 			console.log("Load: missing the setting {0}".format(name));
 		}
-	}
+	};
 
 	for (var option in Typium.options)
 		get(option);
-}
+};
 
 document.addEventListener("DOMContentLoaded", function() {
 	Typium.loadOptions();
@@ -92,14 +92,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	Typium.etudCommPortForOptions = chrome.runtime.connect({name: Typium.PORT_NAME});
 	Typium.etudCommPortForOptions.onMessage.addListener(function(answer) {
-		if (answer.toRequest == Typium.GET_STATE) {
+		if (answer.toRequest === Typium.GET_STATE) {
 			Typium.parseAnswerTo_GetState_(answer, 
 				document.getElementById("etudDeviceName"),
 				document.getElementById("etudOptions"),
 				document.getElementById("etudCalibrate"),
 				document.getElementById("etudStartStop")
 			);
-			if (answer.state.code == 4) {
+			if (answer.state.code === 4) {
 				$("#etudLiveData").html("");
 			}
 		} else if (answer.toRequest !== undefined) {

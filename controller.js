@@ -53,7 +53,7 @@ Typium.Controller =
 		this.inputs = $("*").filter(function(index) {
 			var result = false;
 			try {
-				result = typeof this.selectionStart == "number";
+				result = typeof this.selectionStart === "number";
 				if (result) {
 					this.attention = {
 						duration: 0,
@@ -75,12 +75,12 @@ Typium.Controller =
 		this.links = $("*").filter(function(index) {
 			var result = false;
 			try {
-				if (typeof this.selectionStart == "number" ||
-						this.id.indexOf("typium") == 0 ||
-						this.className.indexOf("typium") == 0) {
+				if (typeof this.selectionStart === "number" ||
+						this.id.indexOf("typium") === 0 ||
+						this.className.indexOf("typium") === 0) {
 					// skip it
-				} else if (this.tagName.toLowerCase() == "a") {
-					result = typeof this.href == "string";
+				} else if (this.tagName.toLowerCase() === "a") {
+					result = typeof this.href === "string";
 				} else {
 					result = this.onclick || that.hasListeners(this, "click");
 				}
@@ -142,8 +142,8 @@ Typium.Controller =
 					y >= y1 &&
 					x + w <= x2 &&
 					y + h <= y2 &&
-					this.style.display != "none" &&
-					this.style.visibility != "hidden") {
+					this.style.display !== "none" &&
+					this.style.visibility !== "hidden") {
 				elements.push($this.get(0));
 			}
 		});
@@ -230,7 +230,7 @@ Typium.Controller =
 			var $btn = $(button.dom);
 			var pos, size, rect;
 			
-			if (window.getComputedStyle(keyboard.container).getPropertyValue("position") == "absolute") {
+			if (window.getComputedStyle(keyboard.container).getPropertyValue("position") === "absolute") {
 				pos = $btn.offset();
 				size = {width: $btn.outerWidth(true), height: $btn.outerHeight(true)};
 				rect = {left: pos.left - window.scrollX, top: pos.top - window.scrollY,
@@ -266,7 +266,7 @@ Typium.Controller =
 		var elemDisplay = compStyle.getPropertyValue("display");
 		var elemVisibility = compStyle.getPropertyValue("visibility");
 		var elemOpacity = parseFloat(compStyle.getPropertyValue("opacity"));
-		if (elemDisplay == "none" || elemVisibility == "hidden" || elemOpacity < 0.1) {
+		if (elemDisplay === "none" || elemVisibility === "hidden" || elemOpacity < 0.1) {
 			return result;
 		}
 			
@@ -387,7 +387,7 @@ Typium.Controller =
 			clearTimeout(this.selector.displayTimeout);
 			this.selector.displayTimeout = 0;
 		}
-		if (button.titles[0] == "close.png") {
+		if (button.titles[0] === "close.png") {
 			this.select(this.selector, button);
 		} else {
 			var elem = document.getElementById(button.commands[0]);
@@ -399,7 +399,7 @@ Typium.Controller =
 					$(elem).focus();
 					$(elem).click();
 							
-					if (typeof this.selectionStart == "number" &&
+					if (typeof this.selectionStart === "number" &&
 							!this.keyboard.isVisible()) {
 						$(this.keyboard.container).fadeIn();
 						this.scrollToViewable(elem);
@@ -535,7 +535,7 @@ Typium.Controller =
 			y: document.height / document.body.scrollHeight //documentElement.scrollHeight
 		};
 
-		var isFullScreen = document.width == screen.availWidth;
+		var isFullScreen = document.width === screen.availWidth;
 		var innerWidth = window.innerWidth * Typium.Controller.zoom.x;
 		var innerHeight = window.innerHeight * Typium.Controller.zoom.y;
 		Typium.Controller.offset = {
@@ -587,9 +587,9 @@ Typium.Controller =
 		this.commPort.onMessage.addListener(function(answer) {
 			if (answer.state !== undefined) {
 				var isTracking;
-				if(typeof(answer.state) == "object") {
+				if(typeof(answer.state) === "object") {
 					console.log("ETUD state: {0}".format(answer.state.message));
-					isTracking = answer.state.code == 5;
+					isTracking = answer.state.code === 5;
 				} else {
 					console.log("ETUD state: {0}".format(answer.state));
 					isTracking = answer.state;
@@ -620,7 +620,7 @@ Typium.Controller =
 				Typium.Controller.keyboard.update(Typium.options);
 				Typium.Controller.selector.update(Typium.options);
 				Typium.Controller.updatePointer();
-			} else if (answer.toRequest == Typium.UPDATE_OPTIONS) {
+			} else if (answer.toRequest === Typium.UPDATE_OPTIONS) {
 				Typium.Controller.commPort.postMessage({name: Typium.GET_OPTIONS});
 			}
 		});

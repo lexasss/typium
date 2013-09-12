@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	Typium.etudCommPortForBrowserAction = chrome.runtime.connect({name: Typium.PORT_NAME});
 	Typium.etudCommPortForBrowserAction.onMessage.addListener(function(answer) {
-		if (answer.toRequest == Typium.GET_STATE) {
+		if (answer.toRequest === Typium.GET_STATE) {
 			Typium.parseAnswerTo_GetState_(answer, 
 				document.getElementById("etudDeviceName"),
 				document.getElementById("etudOptions"),
